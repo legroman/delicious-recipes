@@ -111,6 +111,7 @@ input:-webkit-autofill {
 /******** RECIPE.js ********/
 
 .active-recipe {
+    text-align: left;
     margin: 0 auto;
     width: 60%;
 }
@@ -155,4 +156,10 @@ input:-webkit-autofill {
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 500;
+}
+
+.spinner{
+    text-align: center;
+    margin: 0 auto;
+    color: #e74c3c;
 }

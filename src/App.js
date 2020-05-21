@@ -1,32 +1,20 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import {Switch, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Form from "./components/Form";
+import Header from "./components/Header";
 import Recipes from "./components/Recipes";
+import Recipe from "./components/Recipe";
 
 class App extends Component {
-    state = {
-      recipes: []
-    };
-
-    getRecipe = e => {
-        e.preventDefault();
-        const recipeName = e.target.elements.recipeName.value;
-
-        axios.get
-        (`https://cors-anywhere.herokuapp.com/https://recipesapi.herokuapp.com/api/search?q=${recipeName}`)
-            .then(res => this.setState({recipes: res.data.recipes}))
-            .then(() => console.log(this.state))
-    };
     render() {
         return (
             <div className="App">
-                <header className="App-header">
-                    <h1 className="App-title">Recipe Search</h1>
-                </header>
-                <Form getRecipe={this.getRecipe}/>
-                <Recipes recipes={this.state.recipes}/>
+                <Header/>
+                <Switch>
+                    <Route exact path="/" component={Recipes}/>
+                    <Route path="/recipe/:id" component={Recipe}/>
+                </Switch>
             </div>
         );
     }
