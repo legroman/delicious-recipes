@@ -46,7 +46,9 @@ export default function Recipes() {
                                     )
                                 }else
                                     return (
-                                        <Spinner className="spinner" animation="grow" />
+                                        <div className="spinner-wrapper">
+                                            <Spinner className="spinner" animation="grow" />
+                                        </div>
                                     )
                             }
                         }
